@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xinuzo</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;900&family=Lora:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- KaTeX for Math Rendering -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" xintegrity="sha384-n8MVd4RsNIU0KOVEMVIROPtOQ9dNAKzn+H7rcs6vNyeKHINB5GTsc4UYqxUWCDhM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" xintegrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" xintegrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <!-- Local Stylesheet -->
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <h1><a href="index.html">Rendi Adinata</a></h1>
+                <p>Mathemagician.</p>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="#">Writings</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <footer class="sidebar-footer">
+                <p>&copy; <span id="copyright-year"></span> xinuzo</p>
+            </footer>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <article>
+                <h2>Selamat Datang</h2>
+                <p>
+                    This is my personal corner of the internet, a space dedicated to exploring the intersections of mathematics, computer science, and technology. Here, I document my projects, share insights, and publish articles on topics that I find fascinating.
+                </p>
+                <p>
+                    The primary goal is to create a repository of clear, well-explained ideas. Whether you're a student, a fellow developer, or just a curious mind, I hope you find something valuable here.
+                </p>
+
+                <h3>Recent Writings</h3>
+                <ul class="post-list">
+                    <li>
+                        <a href="post_sample.html">An Introduction to Group Theory</a>
+                        <span class="post-date">July 31, 2025</span>
+                    </li>
+                    <li>
+                        <a href="#">Visualizing the Mandelbrot Set with JavaScript</a>
+                        <span class="post-date">July 15, 2025</span>
+                    </li>
+                     <li>
+                        <a href="#">A Brief Look at the Riemann Hypothesis</a>
+                        <span class="post-date">June 28, 2025</span>
+                    </li>
+                </ul>
+
+                <h3>Featured Project</h3>
+                <div class="featured-project">
+                    <h4><a href="#">Project Title: Neural Network from Scratch</a></h4>
+                    <p>An implementation of a simple feed-forward neural network in Python, explaining the core mathematical concepts behind its operation, including backpropagation with the chain rule, expressed as \( \frac{\partial L}{\partial w} = \frac{\partial L}{\partial \hat{y}} \frac{\partial \hat{y}}{\partial z} \frac{\partial z}{\partial w} \).</p>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Local JavaScript -->
+    <script src="../scripts/script.js"></script>
+</body>
+</html>
