@@ -1,0 +1,176 @@
+/* =================================
+ * FILE: style.css
+ * THEME: Red & Blackish
+ * =================================
+ */
+
+/* --- Theme Variables --- */
+:root {
+    --bg-color: #121212;
+    --sidebar-bg: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --heading-color: #ffffff;
+    --accent-color: #d94646; /* A strong, charming red */
+    --accent-hover: #ff6b6b;
+    --border-color: #333333;
+
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Lora', serif;
+}
+
+/* --- Base & Reset --- */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    margin: 0;
+    line-height: 1.8;
+}
+
+* { box-sizing: border-box; }
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover { color: var(--accent-hover); }
+
+/* --- Layout --- */
+.container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    padding: 50px 30px;
+    border-right: 1px solid var(--border-color);
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-content { flex-grow: 1; }
+
+.main-content {
+    padding: 50px 60px;
+    flex-grow: 1;
+    min-width: 0; /* Prevents flexbox overflow */
+}
+
+/* --- Sidebar Content --- */
+.sidebar h1 {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 1.8rem;
+    margin: 0 0 10px 0;
+}
+.sidebar h1 a {
+    color: var(--heading-color);
+    text-decoration: none;
+}
+.sidebar p {
+    font-family: var(--font-heading);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+}
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.sidebar nav a {
+    display: block;
+    padding: 8px 0;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+.sidebar nav a.active { color: var(--accent-color); }
+.sidebar-footer {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* --- Main Content & Typography --- */
+article h2, article h3 {
+    font-family: var(--font-heading);
+    color: var(--heading-color);
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+article h2 { font-size: 2rem; }
+article h3 { font-size: 1.5rem; }
+article h2:first-child { margin-top: 0; }
+
+article p, article li {
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+}
+article ol, article ul { padding-left: 25px; }
+
+/* Post List on Homepage */
+.post-list { list-style: none; padding: 0; }
+.post-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.8rem;
+}
+.post-list a { font-size: 1.1rem; font-weight: 600; }
+.post-date { font-family: monospace; font-size: 0.9rem; color: var(--text-secondary); }
+
+/* Featured Project */
+.featured-project {
+    border-left: 3px solid var(--accent-color);
+    padding-left: 20px;
+    margin-top: 20px;
+}
+.featured-project h4 { margin: 0; }
+.featured-project h4 a { color: var(--heading-color); }
+.featured-project p { font-size: 1rem; color: var(--text-secondary); }
+
+/* Blog Post Specific */
+.post-header {
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+.post-header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.8rem;
+    margin: 0;
+    color: var(--heading-color);
+}
+.post-meta {
+    color: var(--text-secondary);
+    margin: 0.5rem 0 1rem 0;
+}
+
+/* --- KaTeX Math Styling --- */
+.katex { font-size: 1.2em !important; }
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .container { flex-direction: column; }
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 30px;
+    }
+    .main-content { padding: 40px 30px; }
+}
