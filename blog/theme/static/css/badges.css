@@ -1,0 +1,80 @@
+.date,
+.category,
+.readmore,
+.tags {
+  border-radius: 5px;
+  border: 1px transparent solid;
+  padding: 0 0.3em;
+  margin: 0.1em 0 0.3em 0;
+}
+
+.date {
+  background: var(--primary-color);
+  padding: 0.3em 0.3em;
+  color: var(--background-color);
+  float: left;
+  clear: both;
+  width: 110px;
+  font-size: 1em;
+  line-height: 1em;
+  margin: 0 20px 1em 0;
+  font-weight: bold;
+}
+
+a.category {
+  border-color: var(--muted-color);
+  font-weight: bold;
+  color: var(--black-color);
+  white-space: nowrap;
+}
+a.tags {
+  background: var(--secondary-color);
+  color: var(--black-color);
+  display: inline-block;
+  white-space: nowrap;
+}
+a.category:hover,
+a.tags:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
+a.readmore {
+  background: var(--primary-color);
+  color: var(--background-color);
+  display: inline-block;
+  font-size: 1em;
+  font-weight: bold;
+}
+a.readmore:hover {
+  background: #ff9e9e;
+}
+a.category.selected,
+a.tags.selected {
+  background: var(--primary-color);
+  color: var(--background-color);
+  border-color: transparent;
+}
+
+.tags-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+.info {
+  margin-top: 1.3em;
+  text-align: right;
+  color: var(--muted-color);
+}
+.info a {
+  color: inherit;
+}
+
+/* Mobile: stack date under title instead of floating left */
+@media (max-width: 768px) {
+  .date {
+    float: none;
+    width: auto;
+    display: inline-block;
+    margin: 0 0 1em 0;
+  }
+}

@@ -1,0 +1,29 @@
+{# Use PAGINATION_PATTERNS or pagination may break #}
+{% if DEFAULT_PAGINATION and (articles_page.has_previous() or articles_page.has_next() or category or author or tag) %}
+    <div class="clear"></div>
+    <div class="pages">
+        {%- if articles_page.has_previous() %}
+            {% if articles_page.previous_page_number() == 1 %}
+                <a href="{{ SITEURL }}/{%- if page_name != "index" -%}{{ page_name }}/{%- endif -%}"
+                   class="prev_page">← <span class="prev-next-text">Previous</span></a>
+            {%- else %}
+                <a href="{{ SITEURL }}/{%- if page_name != "index" -%}{{ page_name }}/{%- endif -%}page/{{ articles_page.previous_page_number() }}"
+                   class="prev_page">← <span class="prev-next-text">Previous</span></a>
+            {%- endif %}
+        {%- endif %}
+        {%- if articles_page.has_next() %}
+            <a href="{{ SITEURL }}/{%- if page_name != "index" -%}{{ page_name }}/{%- endif -%}page/{{ articles_page.next_page_number() }}"
+               class="next_page"><span class="prev-next-text">Next</span> →</a>
+        {%- endif %}
+        <span class="pagination-center">
+            {% if category %}
+                {{ category }} <span class="separator">•</span>
+            {% elif author %}
+                {{ author }} <span class="separator">•</span>
+            {% elif tag %}
+                #{{ tag }} <span class="separator">•</span>
+            {% endif %}
+            Page {{ articles_page.number }} of {{ articles_paginator.num_pages }}
+        </span>
+    </div>
+{% endif %}

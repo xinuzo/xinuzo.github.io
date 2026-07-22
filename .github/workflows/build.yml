@@ -1,0 +1,56 @@
+name: xinuzo.github.io CI
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - uses: astral-sh/setup-uv@v5
+      - run: uv run scripts/build.py
+      - run: uv run scripts/audit.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: output
+          path: output/
+
+  deploy:
+    needs: [build]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version-file: .python-version
+      - uses: astral-sh/setup-uv@v5
+      - run: uv run scripts/build.py
+      - name: Prepare pages content
+        run: |
+          cp -r static/ output/static/
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: output/
+      - id: deployment
+        uses: actions/deploy-pages@v4

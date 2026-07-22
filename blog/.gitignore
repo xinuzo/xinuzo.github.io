@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+
+**.xcf
+
+/output
+/cache
+/seo_report.html
+.venv/

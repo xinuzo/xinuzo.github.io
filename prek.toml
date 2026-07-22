@@ -1,0 +1,60 @@
+# Configuration file for `prek`, a git hook framework written in Rust.
+# See https://prek.j178.dev for more information.
+
+default_install_hook_types = [
+  "pre-commit",
+  "commit-msg",
+  "pre-push",
+]
+default_stages = ["pre-commit"]
+
+[[repos]]
+repo = "https://github.com/compilerla/conventional-pre-commit"
+rev = "v4.4.0"
+hooks = [
+  {
+    id = "conventional-pre-commit",
+    stages = ["commit-msg"],
+    args = ["feat", "fix", "build", "ci", "chore", "docs", "drop", "edit",
+     "perf", "polish", "root", "refactor", "revert", "style", "temp", "tests"]
+  }
+]
+
+[[repos]]
+repo = "builtin"
+hooks = [
+  { id = "check-json" },
+  { id = "check-merge-conflict" },
+  { id = "check-toml" },
+  { id = "check-yaml", args = ["--allow-multiple-documents"] },
+  { id = "end-of-file-fixer" },
+  { id = "trailing-whitespace" },
+]
+
+[[repos]]
+repo = "meta"
+hooks = [{ id = "check-useless-excludes" }]
+
+[[repos]]
+repo = "https://github.com/astral-sh/ruff-pre-commit"
+rev = "v0.15.15"
+hooks = [{ id = "ruff-check" }, { id = "ruff-format" }]
+
+[[repos]]
+repo = "https://github.com/astral-sh/uv-pre-commit"
+rev = "0.11.18"
+hooks = [{ id = "uv-lock" }]
+
+[[repos]]
+repo = "local"
+hooks = [
+  {
+    id = "build",
+    name = "Check build script works correctly",
+    entry = "uv run scripts/build.py && uv run scripts/audit.py",
+    language = "system",
+    pass_filenames = false,
+    stages = ["pre-push"],
+    always_run = true,
+  }
+]

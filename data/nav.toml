@@ -1,0 +1,31 @@
+[[block]]
+shortname = "About"
+src = "index"
+subpages = [
+  {shortname = "Contact", src = "contact"},
+]
+
+[[block]]
+shortname = "Math Notes"
+src = "math-notes"
+subpages = [
+  {shortname = "Combinatorics", url = "#combinatorics"},
+  {shortname = "Matroid Theory", url = "#matroid-theory"},
+  {shortname = "Lorentzian Polynomials", url = "#lorentzian"},
+]
+
+[[block]]
+shortname = "Software Projects"
+src = "software"
+subpages = [
+  {shortname = "Flutter/Flame Game", url = "#flame-game"},
+  {shortname = "Chrome Extension", url = "#chrome-ext"},
+]
+
+[[block]]
+shortname = "Teaching"
+src = "teaching"
+subpages = [
+  {shortname = "Manim Animations", url = "#manim"},
+  {shortname = "Math Tutorials", url = "#tutorials"},
+]

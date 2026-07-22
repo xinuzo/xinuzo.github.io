@@ -1,0 +1,46 @@
+/* extras.css — Additional component styles */
+
+/* Image hover glow */
+.entrywrap img {
+  display: block;
+  margin: auto;
+}
+a img:hover {
+  box-shadow: 0px 0px 25px rgba(242, 133, 133, 0.3);
+}
+
+/* Hidden content panels */
+div.hidden {
+  display: none;
+  border: 2px solid #3a2020;
+  border-radius: 8px;
+  padding: 6px;
+  background-color: #1a1414;
+}
+
+/* Note metadata styling */
+.note-meta {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.8em;
+  color: #777;
+}
+
+/* Project cards */
+.project-card {
+  background-color: #1a1414;
+  border: 1px solid #3a2020;
+  border-radius: 7px;
+  padding: 12px 16px;
+  margin: 8px 0;
+}
+.project-card h4 {
+  margin: 0 0 6px 0;
+}
+.project-card p {
+  margin: 4px 0;
+}
+
+.project-links {
+  font-family: "PT Sans", sans-serif;
+  font-size: 0.9em;
+}

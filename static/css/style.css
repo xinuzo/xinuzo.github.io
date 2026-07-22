@@ -1,0 +1,471 @@
+/*
+ * xinuzo personal website — style.css
+ * Theme: Dark Mode + Light Red Accents
+ * Inspired by vEnhance's SIMPLE-53544 layout
+ *
+ * Fonts (loaded via Google Fonts in page.html.j2):
+ *   Body:       "Mate", serif
+ *   Headings:   "Roboto Slab", serif
+ *   Navigation: "PT Sans", sans-serif
+ *   Code:       "JetBrains Mono", monospace
+ */
+
+/* ==============================
+   BASE & RESET
+   ============================== */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Mate", serif;
+    background-color: #0f0f0f;
+    color: #d4d4d4;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+strong {
+    color: #f28585;
+}
+
+blockquote {
+    margin-left: 40px;
+    margin-right: 56px;
+    border-left: 3px solid #e05555;
+    padding-left: 14px;
+    color: #b0b0b0;
+}
+
+pre, code {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #1e1e1e;
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #f28585;
+}
+
+pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #3a3a3a;
+    margin: 2rem 0;
+}
+
+/* ==============================
+   LINKS
+   ============================== */
+
+a:link, a:visited {
+    color: #f28585;
+    text-decoration: none;
+    transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+a:hover {
+    color: #ffb3b3;
+    text-shadow: 0 0 8px rgba(242, 133, 133, 0.4);
+    text-decoration: underline;
+}
+
+h1 a:link, h1 a:visited { color: #f28585; }
+h2 a:link, h2 a:visited { color: #ff9e9e; }
+h3 a:link, h3 a:visited { color: #e6a0c0; }
+
+a.hash-link {
+    padding-left: 7px;
+}
+a.hash-link:link, a.hash-link:visited {
+    opacity: 0.15;
+}
+a.hash-link:hover, a.hash-link:active {
+    opacity: 1;
+    text-decoration: none;
+}
+
+a.emoji-link:hover,
+a.emoji-link:active {
+    text-decoration: none;
+}
+
+/* ==============================
+   LAYOUT — GRID
+   ============================== */
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col-full {
+    width: 100%;
+}
+
+.col-side {
+    width: 220px;
+    flex-shrink: 0;
+    order: 2;
+}
+
+.col-main {
+    flex: 1;
+    min-width: 0;
+    order: 1;
+    padding-right: 14px;
+}
+
+/* ==============================
+   HEADER
+   ============================== */
+
+#header {
+    clear: both;
+    font-family: "Roboto Slab", serif;
+    font-size: 24px;
+    line-height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    background-color: #1a1010;
+    border: 2px solid #e05555;
+    border-radius: 11px;
+    margin-top: 8px;
+    padding-left: 14px;
+}
+
+#header a:hover {
+    text-decoration: none;
+}
+
+#sitetitle {
+    text-align: left;
+    font-size: 36px;
+    margin: 0;
+    color: #f28585;
+    line-height: 2.4;
+    font-weight: 600;
+    font-family: "Roboto Slab", serif;
+    letter-spacing: 0.5px;
+}
+
+/* ==============================
+   EMAIL / SOCIAL BOX
+   ============================== */
+
+#email_box {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-color: #1a1a22;
+    border-radius: 9px;
+    border: 1px solid #3a3a4a;
+    padding: 8px 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    color: #999;
+    display: inline-flex;
+    align-items: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.social-icon:hover {
+    color: #f28585;
+    transform: scale(1.15);
+    text-decoration: none;
+}
+.social-icon svg {
+    vertical-align: middle;
+}
+
+
+/* ==============================
+   SIDEBAR (#side)
+   ============================== */
+
+#side {
+    border: 1px solid #4a3a5a;
+    border-radius: 11px;
+    background-color: #151118;
+    line-height: 20px;
+    padding: 12px;
+    margin-top: 7px;
+    transition: outline 0.3s ease;
+}
+#side:hover {
+    outline: 1px solid #6a5acd;
+}
+
+/* Mobile nav toggle (hidden on desktop) */
+.mobile-nav {
+    display: none;
+}
+
+/* Side headings — PT Sans */
+#side h4, #side h5, #side h6 {
+    font-family: "PT Sans", sans-serif;
+}
+#side h4 {
+    font-weight: normal;
+    font-size: 15px;
+    margin: 10px 0 2px 0;
+    color: #e0c0c0;
+}
+#side h4:first-child {
+    margin-top: 0;
+}
+#side h5 {
+    font-weight: normal;
+    font-size: 13px;
+    font-style: italic;
+    margin: 2px 0;
+    color: #a0a0a0;
+}
+#side h4 strong {
+    font-style: normal;
+    color: #f28585;
+}
+#side h5 strong {
+    font-style: normal;
+    color: #f28585;
+}
+
+/* ==============================
+   MAIN CONTENT (#main)
+   ============================== */
+
+#main {
+    padding: 8px;
+    border: 1px solid #3a2020;
+    border-radius: 11px;
+    background-color: #141010;
+    margin-top: 7px;
+}
+
+#main img {
+    border: 0 none;
+    max-width: 90%;
+}
+
+/* ==============================
+   TYPOGRAPHY — HEADINGS
+   ============================== */
+
+h1 {
+    display: block;
+    letter-spacing: 1px;
+    font-size: 22px;
+    color: #f28585;
+    font-weight: 600;
+    font-family: "Roboto Slab", serif;
+}
+h2 {
+    color: #ff9e9e;
+    font-size: 20px;
+    font-weight: 600;
+    padding-top: 6px;
+    font-family: "Roboto Slab", serif;
+}
+h3 {
+    color: #e6a0c0;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Roboto Slab", serif;
+}
+h4 {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #d4b0b0;
+}
+
+/* ==============================
+   ENTRY & ENTRY WRAP
+   ============================== */
+
+div.entry {
+    border-bottom: 1px dashed #2a2a2a;
+    margin-top: 9px;
+    overflow: hidden;
+    padding: 0 16px 16px 16px;
+}
+
+div.entrywrap {
+    background-color: #1a1414;
+    border: 1px solid #3a2020;
+    margin: 8px 0;
+    padding: 14px;
+    border-radius: 7px;
+    overflow: auto;
+}
+
+#pagetitle {
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+/* ==============================
+   PROFILE IMAGE
+   ============================== */
+
+.profile-float {
+    float: right;
+    padding: 10px;
+}
+.profile-float img {
+    border-radius: 8px;
+    border: 2px solid #3a2020;
+    transition: box-shadow 0.3s ease;
+}
+.profile-float img:hover {
+    box-shadow: 0 0 20px rgba(242, 133, 133, 0.3);
+}
+
+/* ==============================
+   CONTENT ELEMENTS
+   ============================== */
+
+ul {
+    padding-left: 22px;
+}
+ul li {
+    margin-bottom: 0.6rem;
+}
+
+/* ==============================
+   FOOTER
+   ============================== */
+
+.site-footer {
+    padding: 12px 16px;
+    font-size: 0.85em;
+    font-family: "PT Sans", sans-serif;
+}
+.site-footer a:link, .site-footer a:visited {
+    color: #888;
+}
+.site-footer a:hover {
+    color: #f28585;
+}
+
+.text-muted {
+    color: #666;
+}
+
+/* ==============================
+   MOBILE NAV TOGGLE
+   ============================== */
+
+#navtitle {
+    color: #f28585;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.nav-toggle {
+    background: none;
+    border: 1px solid #4a3a5a;
+    border-radius: 5px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 2px 10px;
+    color: #f28585;
+}
+
+/* ==============================
+   RESPONSIVE — TABLET & MOBILE
+   ============================== */
+
+@media (max-width: 740px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .col-side {
+        width: 100%;
+        order: 0;
+    }
+    .col-main {
+        width: 100%;
+        padding-right: 0;
+        order: 1;
+    }
+
+    .mobile-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+    .nav-links.open {
+        display: block;
+    }
+
+    #sitetitle {
+        font-size: 28px;
+        line-height: 2.2;
+    }
+
+    div.entry {
+        padding: 0 8px 12px 8px;
+    }
+
+    div.entrywrap {
+        margin: 6px 0;
+        padding: 10px;
+    }
+
+    .profile-float {
+        float: none;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    blockquote {
+        margin-left: 16px;
+        margin-right: 16px;
+    }
+}
+
+@media (min-width: 741px) {
+    .nav-links {
+        display: block !important;
+    }
+}
+
+/* ==============================
+   MATHJAX FINE-TUNING
+   ============================== */
+
+mjx-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    color: #d4d4d4;
+}
