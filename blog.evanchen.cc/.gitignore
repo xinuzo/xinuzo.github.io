@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+
+**.xcf
+
+/output
+/seo_report.html

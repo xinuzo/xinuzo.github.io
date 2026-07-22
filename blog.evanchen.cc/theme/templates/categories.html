@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>Categories</h2>
+    <ul>
+        {% for category, articles in categories %}
+            <li>
+                <a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a>
+                ({{ articles|length }} posts)
+            </li>
+        {% endfor %}
+    </ul>
+    <p>
+        Properly speaking, "Learning" and "Teaching" would be better as one category
+        if I could find a short name for it.
+        As Kevin Kelley puts it:
+        <blockquote>
+            We don't have a word for learning and teaching at the same time,
+            but our schooling would improve if we did.
+        </blockquote>
+    </p>
+    <h2>Tags</h2>
+    <div class="tags-grid">
+        {% for tag, articles in tags_sorted_by_article_length %}
+            <a class="tags" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}<sup>{{ articles | length }}</sup></a>
+        {% endfor %}
+    </div>
+{% endblock content %}

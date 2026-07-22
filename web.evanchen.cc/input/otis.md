@@ -1,0 +1,169 @@
+---
+title: Olympiad Training for Individual Study (OTIS)
+description: Synopsis of my teaching for olympiad contestants.
+---
+
+<img alt="OTIS logo, v2022" src="/static/otis-logo-v2022.svg" width="200" />
+
+OTIS (officially _OTIS Math LLC_) is a proof-based olympiad training program.
+(Students not yet ready for proofs may be interested in
+[my list of mentors and programs](mentors.html).)
+
+# {{ hl("about", "About OTIS") }}
+
+## {{ hl("syllabus", "Syllabus") }}
+
+<p style="text-align: center;"><a href="/upload/otis-syllabus.pdf">🗎 <b>DOWNLOAD SYLLABUS</b></a></p>
+
+## {{ hl("docs", "Other documents") }}
+
+**Read the above syllabus first** if you're new to OTIS.
+
+- [Video tour of website](https://youtu.be/VCSmRQtwOwo)
+- [OTIS Unit Catalog Wiki](https://catalog.evanchen.cc) (now featuring artwork)
+- Example materials from each of the three difficulty tracks:
+  - B-level track [handout][sample-bcw] (easiest track)
+  - D-level track [handout][sample-dny] and [solutions][sample-dnysol]
+  - Z-level track [handout][sample-zgx] (hardest track)
+- Example practice exam: [JMO][sample-jmo], [USAMO][sample-usamo], and [solutions][sample-sol]
+- [OPAL puzzle hunt](opal.html)
+
+[sample-dny]: /upload/otis-samples/DNY-ntconstruct.pdf
+[sample-dnysol]: /upload/otis-samples/DNY-sol-ntconstruct.pdf
+[sample-bcw]: /upload/otis-samples/BCW-global.pdf
+[sample-zgx]: /upload/otis-samples/ZGX-weirdgeo.pdf
+[sample-jmo]: /upload/otis-samples/Exam-Sample-08-JMO.pdf
+[sample-usamo]: /upload/otis-samples/Exam-Sample-08-USAMO.pdf
+[sample-sol]: /upload/otis-samples/Exam-Sample-08-Soln.pdf
+
+## {{ hl("excerpts", "The OTIS Excerpts") }}
+
+Around the start of 2019, I posted publicly a
+[collection of 202 problems and solutions](excerpts.html)
+based on materials for OTIS.
+This mini-book was named _The OTIS Excerpts_.
+It's designed to mostly be beginner-friendly
+though some of the chapters are more challenging.
+
+---
+
+# {{ hl("apply", "Application &mdash; Year XII (2026-2027)") }}
+
+Applications for the 2026-2027 school year are open now
+and will remain open until **August 1, 2026, 23:59 UTC**.
+See instructions below:
+
+- [Application homework and instructions](/upload/otis-app-xii.pdf)
+- [Application portal at apply.evanchen.cc](https://apply.evanchen.cc)
+
+This is still using the new application portal[^aidbad].
+I hope this is smoother than the previous years' Google forms!
+
+If you miss the regular deadline,
+you can also submit late applications up until April 30, 2027.
+
+[^aidbad]:
+    The main sore point before was that the financial aid application
+    used to be a separate Google form that people would often
+    forget to fill out, or put a wrong email address or different name, etc.
+    The script I used to upload financial aid onto OTIS-WEB
+    from the Google Form was also janky as hell and often mismatched.
+    I hope that with `apply.evanchen.cc`
+    I can stop having to deal with financial aid not making
+    it onto OTIS-WEB correctly.
+
+## {{ hl("prereq", "Who can apply (aka, everyone)") }}
+
+OTIS is open to anyone, including international students from all countries.
+There is no age restrictions at all (younger than 9th grade
+or older than 12th grade are both OK, nor do you have to be in school).
+Students from minorities and underrepresented groups
+are especially encouraged to apply. (I promise I don't bite.)
+**Full financial aid is available for all applications
+(even late) and admissions is need-blind.**
+
+Admissions are only done to ensure students have enough mathematical
+background and writing ability (due to sheer number of students,
+there is no "grading"), understand English,
+and are able to learn from Evan-style writing.
+In particular, **admissions is not a merit-based competition**.
+See the application PDF for more details.
+
+---
+
+# {{ hl("people", "People") }}
+
+Currently [Evan Chen](index.html) (Game Master)
+is the only employee.
+
+## {{ hl("photos", "Photos") }}
+
+![OTIS x IMO 2018 gathering](/static/images/otis-imo-2018.jpg)
+
+![OTIS x IMO 2019 gathering](/static/images/otis-imo-2019.jpg)
+
+## Authorized third-party instructors
+
+Generally, OTIS is internal use only.
+In some cases (usually only by invitation for people I know)
+I permit some private third-party instructors to borrow the OTIS platform
+for their own use.
+A list of instructors who have done this at least once before
+(parentheses indicated years as a _student_ in the program):
+
+Abdullahil Kafi (VII-VIII);
+[Adhitya Mangudy][adhitya];
+[Archit Manas][archit] (VII-VIII);
+Galin Totev;
+[Jeffrey Kwan][jkwan] (IV-V);
+[Kanav Talwar][kanav] (IX);
+[Márton Borbényi][marton];
+[Michael Ren][mren] (I-II);
+[Noah Walsh][noah] (V-VI);
+[Rushil Mathur][rushil] (VII-VIII);
+[Anant Mudgal][anant] (III);
+[Ankan Bhattacharya][ankan];
+[Anushka Aggarwal][anushka] (V);
+Arindam Bhattacharyya (V);
+Atul Nadig (VII);
+[CJ Quines](https://cjquines.com/);
+[Dávid Matolcsi][david];
+[Gopal Goel][gopal] (IV-V);
+[Howard Halim][howard] (III-IV);
+[James Lin][james];
+[Pranjal Srivastava][pranjal] (IV);
+[Ram Goel][ramgoel] (V-VII);
+[Reed LaFleche][reed];
+[Rohan Goyal][rohan] (V);
+[Sanjana Das][sanjana] (VI);
+[Xinke Guo-Xue][xinke];
+[Zack Chroman][zack] (II-III);
+[Zoltan Gyenes][zoltan].
+
+# Comic
+
+[![Calvin and Hobbes comic from Sept 21, 1992.](/static/images/43616c76696e486f62626573.gif)](https://www.gocomics.com/calvinandhobbes/1992/09/21)
+
+[adhitya]: https://www.imo-official.org/participant_r.aspx?id=31724
+[anant]: https://www.imo-official.org/participant_r.aspx?id=25764
+[ankan]: https://www.imo-official.org/participant_r.aspx?id=26643
+[anushka]: https://www.egmo.org/people/person1429/
+[archit]: https://www.imo-official.org/participant_r.aspx?id=33408
+[david]: https://www.imo-official.org/participant_r.aspx?id=27309
+[gopal]: https://www.imo-official.org/participant_r.aspx?id=29882
+[howard]: https://www.imo-official.org/participant_r.aspx?id=28475
+[james]: https://www.imo-official.org/participant_r.aspx?id=27375
+[jkwan]: https://www.imo-official.org/participant_r.aspx?id=29884
+[kanav]: https://www.imo-official.org/participant_r.aspx?id=34561
+[marton]: https://www.imo-official.org/participant_r.aspx?id=27306
+[mren]: https://www.imo-official.org/participant_r.aspx?id=28394
+[noah]: https://www.imo-official.org/participant_r.aspx?id=31040
+[pranjal]: https://www.imo-official.org/participant_r.aspx?id=28249
+[ramgoel]: https://www.imo-official.org/participant_r.aspx?id=31808
+[reed]: https://www.linkedin.com/in/reed-lafleche-941481106/
+[rohan]: https://www.linkedin.com/in/rohan-goyal-a998aa155/
+[rushil]: https://www.imo-official.org/participant_r.aspx?id=34562
+[sanjana]: https://www.egmo.org/people/person1748/
+[xinke]: https://xinkeguoxue.github.io/
+[zack]: https://www.imo-official.org/participant_r.aspx?id=27374
+[zoltan]: https://www.imo-official.org/participant_r.aspx?id=5108

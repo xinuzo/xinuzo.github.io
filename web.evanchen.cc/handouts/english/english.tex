@@ -1,0 +1,835 @@
+\documentclass[11pt]{scrartcl}
+\usepackage[sexy]{evan}
+
+\begin{document}
+\title{Remarks on English}
+\subtitle{a.k.a.\ Advice for writing proofs}
+\date{30 October 2025}
+\maketitle
+
+\epigraph{Exposition, criticism, appreciation, is work for second-rate minds.}
+{G.\ H.\ Hardy}
+
+\tableofcontents
+\newpage
+
+\section{Examples of good and bad writing that we'll refer back to}
+\label{sec:examples}
+Following the examples-first philosophy, here are two examples with commentary.
+
+\subsection{Introductory example: USAMO 2014 Problem 1}
+This example is meant to be short and more accessible.
+(Thanks to Mitchell Lee for some suggestions in June 2018 how to make the
+bad solution even worse.)
+
+\begin{example}
+  [USAMO 2014/1]
+  Let $a$, $b$, $c$, $d$ be real numbers such that $b-d \ge 5$ and all zeros
+  $x_1$, $x_2$, $x_3$, and $x_4$ of the polynomial $P(x)=x^4+ax^3+bx^2+cx+d$ are real.
+  Find the smallest value the product $(x_1^2+1)(x_2^2+1)(x_3^2+1)(x_4^2+1)$ can take.
+\end{example}
+
+\subsubsection*{❌ Bad solution.}
+$x_j^2+1 = (x-i)(x+i) \forall j$
+$\implies \prod x_j^2+1 = \prod (x_j+i)(x_j-i) = P(i)P(-i)$
+so $(b-d-1)^2 + (a-c)^2$.
+$\because x_j = 1 \rightarrow 16$ and $\binom42-1 = 5$.
+$b-d \ge 5$, so $\ge 16$.
+
+\subsubsection*{✅ Good solution.}
+The answer is $\boxed{16}$.
+This can be achieved by taking $x_1 = x_2 = x_3 = x_4 = 1$,
+whence the product is $2^4 = 16$, and $b-d = 5$.
+
+We now show the quantity is always at least $16$.
+We prove:
+\begin{claim*}
+  We always have $(x_1^2+1)(x_2^2+1)(x_3^2+1)(x_4^2+1) = (b-d-1)^2 + (a-c)^2$.
+\end{claim*}
+\begin{proof}
+  Let $i = \sqrt{-1}$.
+  The key observation is that
+  \[ \prod_{j=1}^4 \left( x_j^2 + 1 \right)
+    = \prod_{j=1}^4 (x_j - i)(x_j + i)
+    = P(i)P(-i) = |P(i)|^2. \]
+  Since $P(i) = (-1+b-d) + (c-a)i$, the claim follows.
+\end{proof}
+Since $b-d-1 \ge 4$, we get the desired lower bound of $4^2+0^2=16$.
+
+\subsubsection*{💬 Commentary.}
+These solutions have the same math content.
+But notice how in the better solution:
+\begin{itemize}
+  \ii The second solution makes it clear
+  from the beginning what the answer is, and what the equality case is.
+  (The first solution mixes these together.)
+  \ii Moreover, the main idea (of factoring with $i$) is explicitly labeled,
+  so that even if you have never seen the problem before,
+  you can tell at a glance what the main idea of the solution is.
+  \ii The equations are displayed in the second solution,
+  making them much easier to read than in the first.
+\end{itemize}
+The second solution, despite being twice as ``long'',
+is by far faster to read than the first solution.
+In this case, the difference is not so bad because the
+problem and solution are quite short.
+However, in more involved problems the ``not-so-good solution''
+becomes the ``completely unreadable solution''.
+
+\subsection{Advanced example: USAMO 2014 Problem 4}
+This example is meant to show what a more involved solution could look like.
+(Beginners or even intermediate students shouldn't be discouraged
+if it takes a while to understand even the ``good'' solution; it's not an easy problem.)
+
+\begin{example}
+  [USAMO 2014 Problem 4]
+  Let $k$ be a positive integer.
+  Two players $A$ and $B$ play a game on an infinite grid of regular hexagons.
+  Initially all the grid cells are empty.
+  Then the players alternately take turns with $A$ moving first.
+  In her move, $A$ may choose two adjacent hexagons in the grid
+  which are empty and place a counter in both of them.
+  In his move, $B$ may choose any counter on the board and remove it.
+  If at any time there are $k$ consecutive grid cells
+  in a line all of which contain a counter, $A$ wins.
+  Find the minimum value of $k$ for which $A$ cannot
+  win in a finite number of moves, or prove that no such minimum value exists.
+\end{example}
+
+\subsubsection*{❌ Bad solution.}
+Impose coordinates $(x,y)$.
+If $B$ always removes counters from cells $(x,y)$ with $x + y \equiv 0 \pmod 3$,
+then any line by $A$ gets interrupted so worst case $A$ gets up to $k=2+1+2=5$.
+For $A$, make an equilateral triangle on second turn
+and then put two more counters two away on third turn.
+This makes a threat so $B$ removes an inner counter,
+then $A$ puts this inner counter back it makes another threat each turn,
+so $B$ has to keep doing this.
+Eventually one of the inner counters is surrounded by a full hexagon,
+so $A$ fills in the other gap,
+which creates an double threat for $A$'s next turn so $A$ wins, answer $6$.
+
+\subsubsection*{✅ Good solution.}
+The answer is $k = 6$.
+
+\paragraph{Proof that $A$ cannot win if $k=6$.}
+We give a strategy for $B$ to prevent $A$'s victory.
+Shade in every third cell, as shown in the figure below.
+Then $A$ can never cover two shaded cells simultaneously on her turn.
+Now suppose $B$ always removes a counter on a shaded cell
+(and otherwise does whatever he wants).
+Then he can prevent $A$ from ever getting six consecutive counters,
+because any six consecutive cells contain two shaded cells.
+
+\begin{center}
+  \begin{asy}
+    path hexagon = scale(0.5)*(dir(30)--dir(90)--dir(150)--dir(210)--dir(270)--dir(330)--cycle);
+    unitsize(0.6cm);
+    void mark(int x, int y) {
+      pair P = dir(0)*x + dir(60)*y;
+      filldraw(shift(P)*hexagon, purple, black+1);
+    }
+    void spot(int x, int y) {
+      pair P = dir(0)*x + dir(60)*y;
+      draw(shift(P)*hexagon);
+    }
+    int N = 4;
+    for (int x=-N; x<=N; ++x) {
+      for (int y=-N; y<=N; ++y) {
+        if ( (abs(x+y)) > N ) continue;
+        if (
+          (x-y) % 3 == 0
+        ) mark(x,y);
+        else spot(x,y);
+      }
+    }
+  \end{asy}
+\end{center}
+
+\paragraph{Example of a strategy for $A$ when $k=5$.}
+We describe a winning strategy for $A$ explicitly.
+Note that after $B$'s first turn there is one counter,
+so then $A$ may create an equilateral triangle,
+and hence after $B$'s second turn there are two consecutive counters.
+Then, on her third turn,
+$A$ places a pair of counters two spaces away on the same line.
+Label the two inner cells $x$ and $y$ as shown below.
+\begin{center}
+  \begin{asy}
+    path hexagon = scale(0.5)*(dir(30)--dir(90)--dir(150)--dir(210)--dir(270)--dir(330)--cycle);
+    unitsize(0.6cm);
+    void mark(int x, int y) {
+      pair P = dir(0)*x + dir(60)*y;
+      filldraw(shift(P)*hexagon, palecyan, black);
+      filldraw(CR(P, 0.3), paleblue, blue);
+    }
+    void spot(int x, int y) {
+      pair P = dir(0)*x + dir(60)*y;
+      draw(shift(P)*hexagon);
+    }
+    for (int x=-3; x<=4; ++x) {
+      for (int y=-2; y<=2; ++y) {
+        if ( x+y < -3 ) continue;
+        if ( x+y > 4 ) continue;
+        spot(x,y);
+      }
+    }
+    mark(-2, 0);
+    mark(-1, 0);
+    mark( 2, 0);
+    mark( 3, 0);
+    label("$x$", (-1)*dir(0));
+    label("$y$", (2)*dir(0));
+  \end{asy}
+\end{center}
+Now it is $B$'s turn to move;
+in order to avoid losing immediately,
+he must remove either $x$ or $y$.
+Then on any subsequent turn, $A$ can replace $x$ or $y$
+(whichever was removed)
+and add one more adjacent counter.
+This continues until either $x$ or $y$ has all its neighbors filled
+(we ask $A$ to do so in such a way that
+she avoids filling in the two central cells between $x$ and $y$
+as long as possible).
+
+So, let's say without loss of generality (by symmetry) that $x$
+is completely surrounded by tokens.
+Again, $B$ must choose to remove $x$ (or $A$ wins on her next turn).
+After $x$ is removed by $B$, consider the following figure.
+\begin{center}
+  \begin{asy}
+    path hexagon = scale(0.5)*(dir(30)--dir(90)--dir(150)--dir(210)--dir(270)--dir(330)--cycle);
+    unitsize(0.6cm);
+    void mark(int x, int y) {
+      pair P = dir(0)*x + dir(60)*y;
+      filldraw(shift(P)*hexagon, palecyan, black);
+      filldraw(CR(P, 0.3), paleblue, blue);
+    }
+    void spot(int x, int y) {
+      pair P = dir(0)*x + dir(60)*y;
+      draw(shift(P)*hexagon);
+    }
+    for (int x=-4; x<=5; ++x) {
+      for (int y=-3; y<=3; ++y) {
+        if ( x+y < -4 ) continue;
+        if ( x+y > 5 ) continue;
+        spot(x,y);
+      }
+    }
+    mark(-2, 0);
+    mark( 0, 0);
+    mark( 0, -1);
+    mark(-1, 1);
+    mark(-1, -1);
+    mark(-2, 1);
+
+    mark( 2, 0);
+    mark( 2, 1);
+    mark( 3, 0);
+    label("$x$", (-1)*dir(0));
+    label("$y$", (2)*dir(0));
+    void win(int x, int y, pen p1, pen p2) {
+      pair P = dir(0)*x + dir(60)*y;
+      filldraw(shift(P)*hexagon, p1, p2);
+    }
+    win(1,0, lightgreen, deepgreen);
+    win(0,1, lightgreen, deepgreen);
+    win(0,2, lightred, red);
+    win(0,3, lightred, red);
+    win(4,0, lightred, red);
+    win(5,0, lightred, red);
+  \end{asy}
+\end{center}
+We let $A$ play in the two marked green cells.
+Then, regardless of what move $B$ plays,
+one of the two choices of moves marked in red lets $A$ win.
+Thus, we have described a winning strategy when $k=5$ for $A$.
+
+\subsubsection*{💬 Commentary.}
+The bad solution doesn't give definitions of any of the objects it is using,
+such as how the coordinates $(x,y)$ are specified,
+or the meanings of any of the made-up terms like ``line by $A$'',
+``threat'', ``inner counter'', ``worst case'', ``surrounded by a full hexagon'',
+``fills in the other gap'', ``double threat''.
+The reader is forced to guess.
+
+Diagrams are absent, and there are no names besides the $k$ given in the problem
+(which is abused slightly as $k = 2+1+2 = 5$).
+It also never clearly states what the answer is,
+and smashes everything into one paragraph.
+
+You can read lots of solutions to this problem on AoPS at
+\url{https://aops.com/community/p3478584}
+if you want to see more examples of good and bad writing.
+
+\section{Concrete advice}
+Here are some tips of mine that I don't think are stressed enough.
+
+\subsection{Never write wrong math}
+This is much more of a math issue than a style issue:
+you can lose all of your points for making false claims.
+Personally, I often \emph{stop reading} a solution if it makes
+an egregiously false claim: if someone claims that some fixed
+point is the incenter of $ABC$,
+when it's actually the arc midpoint,
+then I know the solution isn't going to have any substantial progress.
+
+As a special case, don't say something that is partially true
+and then say how to fix it later.
+At best this will annoy the grader;
+at worst they may get confused and think the solution is wrong.
+
+\subsection{Emphasize the point where you cross the ocean}
+Solutions to olympiad problems often involve a few key ideas,
+with the rest of the solution being checking details.
+You want graders to immediately see all the key ideas in the solution:
+this way, they quickly have a high-level understanding of your approach.
+
+Let me share a quote from Scott Aaronson:
+\begin{quote}
+  Suppose your friend in Boston blindfolded you,
+  drove you around for twenty minutes,
+  then took the blindfold off and claimed you were now in Beijing.
+  Yes, you do see Chinese signs and pagoda roofs,
+  and no, you can't immediately disprove him ---
+  but based on your knowledge of both cars and geography,
+  isn't it more likely you're just in Chinatown?
+  \dots
+  \textbf{We start in Boston, we end up in Beijing,
+  and at no point is anything resembling an ocean ever crossed.}
+\end{quote}
+Olympiad solutions work the same way:
+a geometry solution might require a student to do some angle chasing,
+use \href{https://w.wiki/AEpo}{the incenter-excenter lemma} to deduce that two triangles are congruent,
+and then finish by doing a little more angle chasing.
+In that case, you want to highlight the key step of proving the two triangles
+were congruent, so the grader sees it immediately and can say
+``okay, this student is using this approach''.
+
+Ways that you can highlight this are:
+\begin{itemize}
+  \ii \alert{Isolating crucial steps and claims}
+  as their own self-contained parts.\footnote{This is often useful for another reason:
+    breaking the proof into individual steps.
+    The complexity of understanding a proof grows super-linearly
+    in its length; therefore breaking it into smaller chunks
+    is often a good thing.}
+  \ii Using \alert{claims} to say what you're doing.
+  Rather than doing angle chasing and writing
+  ``blah blah blah, therefore $\triangle M_B I_B M \sim \triangle M_C I_C M$'',
+  consider instead ``We claim $\triangle M_B I_B M \sim \triangle M_C I_C M$, proof''.
+  \ii \alert{Displaying important equations}.
+  For example, notice how the line
+  \begin{equation}
+    \triangle M_B I_B M \sim \triangle M_C I_C M
+    \label{eq:displaytri}
+  \end{equation}
+  jumps out at the reader.
+  You can even number such claims to reference them later,
+  e.g.\ ``by \eqref{eq:displaytri}''.
+  This is especially useful in functional equations.
+  \ii \alert{Just say it}!
+  Little hints like ``the crucial claim is $X$''
+  or ``the main idea is $Y$'' are immensely helpful.
+  Don't make $X$ and $Y$ look like another intermediate step.
+\end{itemize}
+
+In the good USAMO 2014/1 sample, we can see two examples of this.
+First, the critical identity
+\[ (x_1^2+1)(x_2^2+1)(x_3^2+1)(x_4^2+1) = (b-d-1)^2 + (a-c)^2 \]
+was written out as a separate independent claim, with a self-contained proof.
+This divorces the ``prove an identity'' part of the problem from the
+``prove the lower bound'' part of the problem,
+splitting the solution into two independent halves.
+The reader doesn't need to consider $b-d \geq 5$ in the first half;
+this compartmentalization helps make things easier.
+Second, the introduction of $i$ on its separate display,
+explicitly telegraphed with ``the key observation'',
+makes it obvious to the reader that this particular step is the heart of the proof.
+
+\subsection{``Find all\dots'' and ``find the minimum/maximum\dots''}
+Many problems will ask you to ``find all objects satisfying some condition''
+(for example, functional equations, Diophantine equations).
+For any solution of this form, I strongly recommend that you
+structure your solution as follows:
+\begin{itemize}
+  \ii Start by writing ``\alert{We claim the answer is \dots}''.
+  \ii Then, say ``\alert{We prove these satisfy the conditions}'', and do so.
+  For example, in a functional equation with answer $f(x) = x^2$,
+  you should plug this $f$ back in and verify the equation is satisfied.
+  Even if this verification is trivial, you must still explicitly include it,
+  because it is part of the problem.
+  \ii Finally, say ``\alert{Now we prove these are the only ones}'' and do so.
+\end{itemize}
+
+Similarly, some problems will ask you to ``find the minimum/maximum value of $X$''.
+In such situations, I strongly recommend you write your solution as follows:
+\begin{itemize}
+  \ii Start by writing ``\alert{We claim the minimum/maximum is \dots}''.
+  \ii Then, say ``\alert{We prove that this is attainable}'',
+  and give the construction (or otherwise prove existence).
+  Even if this verification is trivial, you must still explicitly include it,
+  because it is part of the problem.
+  \ii Finally, say ``\alert{We prove this is a lower/upper bound}'', and do so.
+\end{itemize}
+
+Failing to do one of the steps mentioned above is a classic newbie mistake.
+Make it abundantly clear to the grader that you know the difference
+between a bound and a maximum.
+The good solutions to both problems on USAMO 2014 follow this structure.
+
+\subsection{Leave space}
+Most people don't leave enough space. This makes solutions hard to read.
+
+Examples of things you can do:
+\begin{itemize}
+  \ii \alert{Skip a line after paragraphs}.
+  Use paragraph breaks more often than you already do.
+
+  \ii If you isolate a specific \alert{lemma or claim} in your proof,
+  then it should be on its own line,
+  with some whitespace before and after it.
+
+  \ii Any time you do casework,
+  you should always \alert{split cases into separate paragraphs or bullet points}.
+  Make it visually clear when each case begins and ends.
+
+  \ii Display important equations, rather than squeezing them into paragraphs.
+  If you have a long calculation,
+  then do an aligned display\footnote{This is the
+    \texttt{align*} environment, for those of you that like \LaTeX.}
+  rather than squeezing it into a paragraph.
+  For example, instead of writing
+  $0 \le (a - b)^2 = (a + b)^2 - 4ab = (10 - c)^2 - 4\left( 25 - c(a + b) \right)
+    = (10 - c)^2 - 4\left( 25 - c(10 - c) \right) = c(20 - 3c)$,
+  write instead
+  \begin{align*}
+    0 &\le (a - b)^2\\
+     &= (a + b)^2 - 4ab \\
+     &= (10 - c)^2 - 4\left( 25 - c(a + b) \right) \\
+     &= (10 - c)^2 - 4\left( 25 - c(10 - c) \right) \\
+     &= c(20 - 3c).
+   \end{align*}
+\end{itemize}
+
+\subsection{For the love of god please include a diagram if you needed one}
+If you used a diagram to solve the problem, give one to the reader too.
+(This is not limited to just geometry problems.)
+
+In competition settings, you do \emph{not} need to draw a new diagram for the solution.
+Just turn in the one that you already drew when solving the problem,
+by adding the appropriate page headers to it.
+
+``Why can't the reader draw their own diagram in Geogebra?''
+Well, yes, in theory. But theory is not the same as practice.
+For example, suppose you write ``let $M$ be the midpoint of $\ol{BC}$''
+when you meant ``let $M$ be the midpoint of $\ol{EF}$''.
+Now because of that one typo, you're \emph{completely screwed},
+because you \emph{also} forced the reader to draw their own diagram,
+which is now different from yours.
+The reader has no way to fix your mistake for you.
+There's no reason to press your luck like this; just include a diagram.
+
+If you want to understand how painful it is to read a solution with no diagram provided,
+check out the AoPS thread for USAMO 2014/4 at \url{https://aops.com/community/p3478584}
+and try reading some of the text-only solutions.
+
+\subsection{Pay special attention to definitions (extra important)}
+The previous illustration of how the typo
+``let $M$ be the midpoint of $\ol{BC}$'' can kill you
+illustrates a more general point: you have to get definitions right.
+For intermediate logic, a reader can rely on truth/falsity of statements
+to help fill in gaps or fix typos --- but definitions cannot be
+intrinsically right or wrong, so the reader has to use the one you gave them.
+
+Thus it's absolutely critical your definitions are solid.
+Whenever you define a new object or algorithm,
+pay special care that your specifications are complete and correct.
+
+Tips:
+\begin{itemize}
+  \ii \alert{Write in complete sentences}.
+  Do not skimp on words when you're defining objects, they're too important.
+  (If you want to be lazy, do so in the main body of your solution, not the definitions.)
+
+  \ii If the definition is complicated enough, \alert{give some examples}.
+  (To be honest, I always thought the examples were worth more than the formal definition.)
+  Compare for example
+  \begin{quote}
+  \slshape
+  Define a \textbf{block} of letters to be a maximal
+  contiguous subsequence of consecutive letters.
+  \end{quote}
+  versus
+  \begin{quote}
+  \slshape
+  Define a \textbf{block} of letters to be a maximal
+  contiguous subsequence of consecutive letters.
+  For example, the word $aabbbcaaa$ has four blocks,
+  namely $aa$, $bbb$, $c$, $aaa$, appearing in that order.
+  \end{quote}
+
+  \ii If you are defining an object,
+  \alert{consider whether it makes sense to name it}.
+  For example, if you find yourself writing ``the set of bad numbers'' over and over,
+  consider naming it $B$ instead.\footnote{One subtle
+    side effect of this habit is that it will also remind you to check
+    that you \emph{gave} a definition of ``bad number'' to begin with.
+    If you try to name an object you never gave a full definition of,
+    it will tend to jump out at you.}
+  As another example, consider
+  \begin{quote}
+  \slshape
+  Given a word $A$, we introduce the following notation for its $m$ blocks:
+  \[ A =
+    A_1 A_2 \dots A_m
+    = \underbrace{a_1 \dots a_1}_{x_1}
+    \underbrace{a_2 \dots a_2}_{x_2}
+    \dots
+    \underbrace{a_m \dots a_m}_{x_m}.
+  \]
+  \end{quote}
+
+  \ii \alert{Never write the words ``worst case''} unless you really,
+  really know what you are doing.
+  This term is tantamount to saying to the reader,
+  ``I'm only going to consider this case, but I won't explain why'',
+  and is quite commonly accompanied by false or circular reasoning.
+\end{itemize}
+The examples for USAMO 2014/4 shows a night-and-day contrast.
+In the bad write-up, nothing is defined, illustrated, or named.
+In the good write-up, all named objects are explicitly shown.
+
+\subsection{Other things}
+Try to have nice handwriting.
+Leave 1-inch (or more) margins.
+% Try to avoid making typos.
+Write your proofs forwards even if you solved the problem backwards.
+If you need to cite a theorem, say clearly how you're doing so.
+Use variable names at your discretion.
+Strike out and cross out unwanted parts of your solution (don't scribble).
+
+I'm sure someone has told you these before.
+If not, consider reading
+\url{https://www.aops.com/articles/how-to-write-solution}.
+
+\section{Funny quote from \href{https://www.gleech.org/better-maths}{Steven Witten}}
+\begin{quote}
+  \slshape
+  Imagine I asked you to learn a programming language where:
+  \begin{itemize}
+  \ii All the variable names were a single letter,
+  and where programmers enjoyed using foreign alphabets,
+  glyph variation and fonts to disambiguate their code from meaningless gibberish.
+  \ii None of the functions were documented,
+  and instead the API docs consisted of circular references to other pieces of similar code,
+  often with the same names overloaded into multiple meanings, often impossible to Google.
+  \ii None of the sample code could be run on a typical computer;
+  in fact, most of it was pseudo-code lacking a definition of input and output,
+  or even the environment it was supposed to run.
+  \end{itemize}
+\end{quote}
+
+\newpage
+
+\section{Writing concisely (for intermediate students)}
+\renewcommand{\theequation}{\fnsymbol{equation}}
+On a few occasions I'm approached by students who feel like their solutions
+are too verbose and want advice on how to trim them down.
+If you're a beginner, you probably shouldn't worry about this at all.
+But here is some advice for intermediate-level students
+who want to refine their writing style further.
+
+I think in a lot of cases students think there's a sort of dial on
+``how much detail should I include?'',
+like a microscope you could zoom in or zoom out on.
+If that was true, you just need to change the threshold,
+zooming out to the perfect setting to satisfy the reader.
+
+But I have found that ``too much detail'' is usually \emph{not} the issue.
+Most of the time, when solutions seem to be too long,
+\alert{it's due to disorganized writing that cannot be fixed with the delete key}.
+You need to actually \emph{rewrite} the sentences, not just cut parts out.
+
+For example, one way you can tighten writing is to plan ahead! That means:
+\begin{itemize}
+  \ii Organize your proof into a tight sequence of discrete claims.
+  \ii When working with cases, split them neatly, e.g., with bullet points.
+  \ii Write logical steps forwards, not backwards
+  (see ``sdrawkcaB knihT, Write Forwards'' from the
+  \href{https://www.aops.com/articles/how-to-write-solution}{AoPS article earlier}
+  for more on that).
+  The TL;DR is:
+  \begin{itemize}
+    \ii When possible, write like this: ``$X$ implies $Y$ thus $Z$''.
+    \ii Don't write like this: ``we want $Z$ to be true,
+    and if $Y$ was true it would imply $Z$,
+    and $X$ is equivalent to $Y$, but $X$ is given, so $Z$ holds''.\footnote{One
+      of the coordinators for the geometry problem IMO 2025/2
+      mentioned to me this was a common issue that slowed down grading that problem.
+      In IMO 2025/2, several key points had many possible definitions and properties,
+      and students were often unclear about which things were definitions,
+      which things were proven from which others, etc.}
+  \end{itemize}
+  This applies both at the level of individual sentences,
+  and also at the overall shape of the entire solution.
+\end{itemize}
+To illustrate this, consider the following example problem.
+\begin{example}
+  [EGMO 2024/4]
+  For a sequence $a_1<a_2<\dots<a_n$ of integers,
+  a pair $(a_i,a_j)$ with $1\leq i<j\leq n$ is called \emph{interesting}
+  if there exists a pair $(a_k,a_\ell)$ of integers with $1\leq k<\ell\leq n$ such that
+  \[ \frac{a_\ell-a_k}{a_j-a_i}=2. \]
+  For each $n\geq 3$, find the largest possible number of interesting pairs
+  in a sequence of length $n$.
+\end{example}
+The answer to this problem turns out to be $\binom{n-1}{2}+1$, achieved by setting
+\begin{equation}
+  a_1 = 0, \qquad a_k = 2^{k-2} \text{ for all } k \ge 2
+  \label{eq:egmo_construction}
+\end{equation}
+Let's focus on just the verification that \eqref{eq:egmo_construction}
+does indeed produce exactly $\binom{n-1}{2}+1$ interesting pairs.
+Here are again two ways you could write that verification.\footnote{The
+  verbose example is adapted from a real write-up, with permission.}
+
+\subsubsection*{❌ Verbose way to write the verification.}
+To see that \eqref{eq:egmo_construction} gives $\binom{n-1}{2}+1$ interesting pairs,
+note that for any $2 \leq i < j \leq n-1$, we have that
+\[ \frac{a_{j+1} - a_{i+1}}{a_j - a_i} = \frac{2a_j-2a_i}{a_j-a_i} = 2, \]
+so the $\binom{n-2}{2}$ pairs $(a_i, a_j)$ for $2\leq i<j \leq n-1$ are interesting.
+Furthermore, the $n-2$ pairs $(a_1, a_j)$ for $2\leq j\leq n-1$ are interesting, since
+\[ \frac{a_{j+1} - a_1}{a_j-a_1} = \frac{a_{j+1}}{a_j} = \frac{2^{j-1}}{2^{j-2}} = 2. \]
+Also, $(a_{n-1}, a_n)$ is interesting because
+\[ \frac{a_n-a_0}{a_n - a_{n-1}} = \frac{2^{n-2}}{2^{n-3}} = 2, \]
+so we have a total of $\binom{n-2}{2} + (n-2) + 1 = \frac{n-1}{2} + 1$ interesting pairs so far,
+and the other pairs are of the form $(a_i, a_n)$ for $1\leq i\leq n-2$,
+which are all uninteresting because
+\[ 2(a_n - a_i) \geq  2(2^{n-2} - 2^{n-4}) = 2^{n-1} - 2^{n-3} > 2^{n-2} = a_n - a_1, \]
+so the double of $a_n-a_i$ cannot be a difference $a_\ell-a_k$
+because the largest such difference is $a_n-a_1$, which we've just shown is
+less than the double of $a_n-a_1$.
+
+\subsubsection*{✅ Concise way to write the verification.}
+We claim that for \eqref{eq:egmo_construction},
+all $(i,j)$ are interesting \emph{except} for the case where $j = n$ and $i \in \{1,2,\dots,n-2\}$.
+Indeed:
+\begin{itemize}
+  \item If $i=1$ and $j<n$, then $a_j - a_i = 2^{j-2} = \frac{a_{j+1}-a_j}{2}$.
+  \item If $i>1$ and $j<n$, then $a_j - a_i = \frac{2a_j-2a_i}{2} = \frac{a_{j+1}-a_{i+1}}{2}$.
+  \item If $i=n-1$ and $j=n$, then $a_j - a_i = 2^{n-3} = \frac{a_n - a_1}{2}$.
+\end{itemize}
+But if $i \le n-2$ and $j=n$, then for any $1 \le k < \ell \le n$ we have
+\[ a_n - a_i \geq 2^{n-2} - 2^{n-4} > 2^{n-3} = \frac{a_n - a_1}{2}
+  \ge \frac{a_\ell - a_k}{2} \]
+so these $n-2$ pairs are uninteresting.
+This gives a count of $\binom{n}{2} - (n-2) = \binom{n-1}{2}+1$ interesting pairs.
+
+\subsubsection*{💬 Commentary.}
+Nothing in the verbose solution is unclear or incomplete \emph{per se},
+unlike some of the bad solutions we showed in \Cref{sec:examples}.
+(The bad examples in \Cref{sec:examples} were missing so much explanation
+that a reader might not understand them at all.)
+Still, note how much difference a little bit of planning and organization can make.
+
+The verbose solution reads a bit like a stream of consciousness,
+where the student just wrote the steps in the order they thought of.
+In particular, the last seven lines are actually a single run-on sentence.
+That's a clear sign of trouble!
+
+In contrast, the concise solution states up-front which pairs $(i,j)$
+are uninteresting, divides it into bullets for each of the cases,
+and then executes each one in a self-contained way.
+
+\appendix
+
+\section{Notes specific to mathematical competitions}
+Up until now I've given my advice for how to write solutions well.
+But I know a lot of you are specifically interested in olympiad grading,
+so here are a few quick remarks to that end.
+These comments are meant for USA(J)MO in particular
+but should apply to other respectable contests as well.
+
+\subsection{Grading}
+Your score on an olympiad problem is a nonnegative integer at most $7$.
+The unspoken rubric reads something like the following:
+\begin{center}
+\begin{tabular}[h]{ll}
+  & Description \\ \hline
+  \boldmath{$7^\ast$} & Problem was solved \\
+  $6$ & Tiny slip (and contestant could repair) \\
+  $5$ & Small gap or mistake, but non-central \\ \hline
+  $2$ & Lots of genuine progress \\
+  \boldmath{$1^\ast$} & Significant non-trivial progress \\
+  \boldmath{$0^\ast$} & ``Busy work'', special cases, lots of writing
+\end{tabular}
+\end{center}
+The ``default'' scores are starred above.
+Note that, unlike high school English class or the SAT essay,
+you don't get points just because you wrote a lot!
+
+In theory, your solutions to olympiads are graded solely based on math.
+In practice, style still does play a role in some ways:
+the harder your solution is to understand,
+the less likely the grader is to understand you,
+and the less likely you are to earn points you deserve.\footnote{In addition,
+  poorly written solutions make the graders sad, and you wouldn't want that, would you?}
+
+\subsection{More examples of decent write-ups}
+I should note that on my website
+\begin{center}
+  \url{https://web.evanchen.cc/problems.html}
+\end{center}
+there are a large number of solutions written by me
+to past problems on the USAMO, IMO, USA TST(ST), etc.
+In particular, all USAMO and IMO problems since the year 2000
+are present.
+
+Not all the solutions are complete (some of them are just outlines),
+but I think the majority of them are full write-ups,
+and these can help give more examples of solutions
+that you can compare to or model your own work after.
+
+\subsection{How much detail to include}
+A common question I get is what the minimum amount of detail needed
+to get full marks for a solution is.
+The answer is simple: enough to convince the grader you solved the problem.
+
+There is a myth that, sort of like your high school English or math teacher,
+you can lose points for ``not writing enough'' or not having certain key words
+or leaving out details that were obvious to everyone.
+This is not really how it works.
+USAMO graders are interested in whether you solved the problem
+rather than your ability to fill pages with ink.
+
+Basically, \alert{you lose points if a student who did NOT solve the problem
+could have written the same words as you}.
+For example, whenever you say something like ``it's easy to see $X$'',
+the grader has to ask whether you actually understand why $X$ is true,
+or don't know and are just bluffing.
+So that's always the criteria you should have in your head
+when deciding to write out in full.
+
+\subsection{Citing lemmas}
+In general it is usually okay to cite a result that is
+(i) named, and (ii) does not trivialize the given problem.
+Anything outside this scope is a ``gray area''
+and I don't want to commit to a hard set of guidelines.
+
+However, the main thing I want to say is that
+\alert{if in doubt, outline a proof}.
+You don't have to choose between the extremes
+``say absolute zero'' and ``prove quoted lemma in full gory detail''.
+It's better to just include a couple lines giving the overall idea of the proof
+to show that you \emph{could} write it out if you wanted to,
+but are omitting it because the result is already known.
+
+\subsection{Fake-solving problems}
+With all that said, I would say in the end,
+when \alert{people don't get the points they expect,
+it's because their solution is actually wrong or incomplete},
+not because they wrote it poorly.
+This is true something like 90\% of the time, maybe more.
+
+Some common ways to lose most or all of your points
+by virtue of not having solved the problem:
+\begin{itemize}
+  \ii Flipping an inequality sign.
+  \ii Not understanding what the word ``function'' means
+  in a functional equation.
+  \ii Making some assumption that seems intuitive,
+  but actually requires justification (and is the main difficulty of the problem).
+  \ii Stating key assertions with no proof
+  (often which are equivalent to the problem).
+  \ii Making some actual logical error
+  (for example, the so-called ``pointwise trap'').
+  \ii Missing some case or possibility that the student didn't realize existed.
+  \ii Not understanding the problem statement altogether
+  (for example, not knowing that ``find all'' problems have two parts,
+  and only doing one direction).
+\end{itemize}
+Some examples of USAMO problems that are notorious for generating wrong solutions:
+USAMO 2003/6, USAMO 2007/2, USAMO 2010/3, USAMO 2016/4.
+
+I should say there is no shame in having a wrong solution to a problem,
+it really happens to everyone more often than anyone wants to admit.
+Just don't delude yourself into thinking that you lost points
+you deserved because the graders didn't like your style.
+
+\section{Checking your work}
+\subsection{How to check your solutions during the year}
+When you are practicing during the year,
+the best way to get feedback on proofs is to have a friend/coach
+who can check your work and offer suggestions.
+But the supply of people willing to do this is admittedly low,
+so most people are not so lucky to have access to feedback.
+Almost everyone gets by instead with the following algorithm:
+\begin{description}
+  \ii[Step 1.] Write up your solution neatly.
+  The more clean your write-up is, the more likely you are to catch
+  your own mistakes\footnote{If you find that most of your solutions
+    still have mistakes which aren't caught at this first step,
+    this suggests you are either not writing well
+    or the problems you are trying are too hard for you.}.
+  As you write your solution, actively look for ways to
+  reorganize, consolidate, or simplify your solution
+  (see \href{https://web.evanchen.cc/faq-contest.html#C-24}{Evan's FAQ C-24}).
+
+  \ii[Step 2.] Once you have a draft of a solution written,
+  find the problem's thread on the Art of Problem Solving forum.
+  You can find almost every past contest problem via the Contest Index at
+  \url{https://aops.com/community/c13}.\footnote{I
+    do NOT recommend using the AoPS Wiki in place of the Contest Index.
+    The solution quality in the wiki is generally much poorer than the forum.}
+
+  Compare your solution draft to others posted,
+  particularly reputable\footnote{If you don't know who is ``reputable'' yet,
+    using the cleanliness of the presentation is an astonishingly good proxy.
+    People who typeset their LaTeX correctly,
+    isolate claims/proofs and sections, actually include diagrams, etc.
+    are (not-so-coincidentally) usually the ones who know what they're doing.
+    As a concrete example, if you were looking for a solution to USAMO 2014/4,
+    \href{https://aops.com/community/p15752333}{post \#68 by TheUltimate123}
+    is the kind of post you should read first: properly drawn diagram,
+    clear headings showing the two separate parts of the proof,
+    proper formatting, and so on.} users.
+  Often, a problem will have essentially only a few approaches,
+  and you'll find another user who had more or less
+  the same approach.\footnote{There are unfortunately some problems,
+    like USAMO 2017/1, where so many different solutions are possible
+    that any two people are likely to have different approaches.}
+  This serves as a sanity check that what you have does work.
+
+  If you find your solution is way shorter or simpler
+  than everyone else, then you have good reason to be suspicious.
+  Look for the ocean-crossing point in other people's solutions.
+  Why did they have to work so hard there, while you did not?
+  Often, that's where the mistake will be.
+
+  \ii[Step 3.] After any polishes or edits inspired by other's works,
+  post your final draft on the forum thread too.
+  By Cunningham's Law, if you have a blatantly wrong solution,
+  someone will often point it out within a few hours.
+\end{description}
+
+\subsection{How to check your solutions during a contest}
+Of course, it is critical to eventually
+be able to check your own work independently
+without consulting other people.
+The IMO does not have live feedback;
+by the time someone tells you about a mistake, it is too late!
+
+If you are a beginner it might take a while to reach this stage,
+but you should set this as a goal for where you want to end up.
+It is easier than you might expect ---
+as you naturally get better at solving problems, your instincts
+about the correctness of proofs will automatically develop too.
+
+During the contest, the only advice I have is
+``write clearly and carefully''
+(which is why developing these habits pays off later).
+I cannot tell you how many times I realized only during the write-up phase
+that the ``solution'' I thought I had was actually flawed.
+\end{document}

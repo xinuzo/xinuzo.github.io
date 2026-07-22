@@ -1,0 +1,47 @@
+---
+title: About
+slug: about
+---
+
+This is the public blog of [Evan Chen](https://web.evanchen.cc).
+
+On this blog you can likely find me posting about
+[math](https://web.evanchen.cc/napkin.html),
+[writing](https://web.evanchen.cc/publications.html),
+[math olympiads](https://web.evanchen.cc/olympiad.html),
+[puzzle hunts](https://web.evanchen.cc/puzzlehunt.html),
+[teaching](https://web.evanchen.cc/otis.html),
+[Arch Linux](https://github.com/vEnhance/), and so on.
+You can check my [now page](https://web.evanchen.cc/now.html)
+if you want to see what my current "job" is, whatever that means.
+
+If you want to narrow down to a specific category,
+you can [check the categories page](/categories).
+
+## More things I wrote
+
+If you like my writing, some of the stuff on <https://web.evanchen.cc>
+may be of interest to you, like
+
+- [An Infinitely Large Napkin](https://web.evanchen.cc/napkin.html),
+  a 1000-page book touring the undergraduate and first-year grad math syllabus;
+- My [Euclidean geometry textbook](https://web.evanchen.cc/geombook.html);
+- My [Frequently Asked Questions (FAQ) list](https://web.evanchen.cc/faqs.html)
+  (answers too short to be full blog posts);
+- [Past puzzles I've authored in Mystery Hunts](https://web.evanchen.cc/puzzlehunt.html#own);
+- [wall.evanchen.cc](https://wall.evanchen.cc/about),
+  my microblog for stupid daily-ish snippets from my head.
+
+## Technical details
+
+This blog was generated using [Pelican](https://getpelican.com/).
+The theme is adapted from [blue-penguin](https://github.com/jody-frankowski/blue-penguin),
+and the fonts are [et-book](https://edwardtufte.github.io/et-book/).
+Comments are supported by a separate [isso server](https://isso-comments.de/).
+You can find the source repository on [GitHub][github].
+
+## Spot a typo?
+
+Please open an issue or pull request on [GitHub][github]!
+
+[github]: https://github.com/vEnhance/blog.evanchen.cc/
