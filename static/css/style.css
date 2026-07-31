@@ -452,6 +452,10 @@ ul li {
         margin-left: 16px;
         margin-right: 16px;
     }
+
+    .desktop-only {
+        display: none !important;
+    }
 }
 
 @media (min-width: 741px) {
