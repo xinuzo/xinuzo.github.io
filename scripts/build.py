@@ -66,7 +66,7 @@ def build() -> None:
     for path in DIR_IN.rglob("*.md"):
         print(f"* {path}")
         src = path.stem
-        with open(path) as f:
+        with open(path, encoding="utf-8") as f:
             page = frontmatter.load(f)
         md_env.globals["page"] = page
         rendered_md = md_env.from_string(page.content).render()

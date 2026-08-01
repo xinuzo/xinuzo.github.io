@@ -1,29 +1,16 @@
 ---
-title: Software Projects
-description: Software projects including Flutter/Flame game development and browser extensions.
+title: Projects
+description: Software projects 
 ---
 
-I write software primarily in Dart/Flutter and
-JavaScript. Below are selected projects.
+I will move some of my projects here. I hope. I really do.
 
-## {{ hl("flame-game", "Flutter / Flame Game Engine") }}
+## {{ hl("placeholder", "this is still a place holder") }}
 
-### Arcane Realms
+### TBD
 
-A 2-D action RPG built with the
-[Flame](https://flame-engine.org/) game engine
-on Flutter. Features tile-based maps, ECS architecture,
-and procedural dungeon generation.
+I have an experience with
+[TBD](https://flame-engine.org/)....
 
 [GitHub](#) · [Live Demo](#) · [Dev Log](#)
 
-## {{ hl("chrome-ext", "Chrome Extension — Language Learning") }}
-
-### LinguaLens
-
-A Chrome extension that overlays vocabulary
-annotations on any webpage, using spaced-repetition
-scheduling (SM-2 algorithm) to reinforce new words
-in context. Supports Mandarin, Japanese, and Korean.
-
-[Chrome Web Store](#) · [Source Code](#)
