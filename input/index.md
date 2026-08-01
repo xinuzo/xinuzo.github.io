@@ -7,10 +7,10 @@ description: Homepage of Rendi Adinata. Mathematics, software projects, notes, a
 <img src="/static/images/profile.jpg" width="200" alt="Photo of Rendi Adinata." />
 </span>
 
-_"To doubt is to believe."_ <!-- rumdl-disable-line MD036 -->
+_"To doubt is to believe."_ 
 — Akiyama Shinichi
 
-Welcome. I am **Rendi Adinata**,
+Hi. I am **Rendi Adinata**,
 a mathematics undergraduate at
 [Institut Teknologi Bandung (ITB)](https://www.itb.ac.id/)
 and software developer.
