@@ -21,7 +21,7 @@ On the software side I build things with
 Here is [my CV](/static/docs/Academic_CV_Rendi.pdf),
 my [writings](math-notes.html),
 and [contact information](contact.html).
-I also maintain a [blog](soon) to build a habbit in writing.
+I also maintain a [blog](#soon) to build a habit in writing.
 
 ---
 
