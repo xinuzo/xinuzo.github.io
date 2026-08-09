@@ -26,6 +26,18 @@ jobs:
           name: output
           path: output/
 
+      - name: Prepare pages content
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: |
+          cp -r static/ output/static/
+          cp .nojekyll output/.nojekyll
+      - uses: actions/configure-pages@v5
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+      - uses: actions/upload-pages-artifact@v3
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        with:
+          path: output/
+
   deploy:
     needs: [build]
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
@@ -37,23 +49,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-python@v5
-        with:
-          python-version-file: .python-version
-      - uses: astral-sh/setup-uv@v5
-      - run: uv run scripts/build.py
-
-      - name: Prepare pages content
-        run: |
-          cp -r static/ output/static/
-          cp .nojekyll output/.nojekyll
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: output/
       - id: deployment
         uses: actions/deploy-pages@v4
