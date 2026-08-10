@@ -4,17 +4,10 @@ description: Expository notes on combinatorics, matroid theory, Lorentzian polyn
 ---
 
 Below are expository notes on topics I have studied
-or am currently exploring. Each document is a
-self-contained PDF intended to be accessible to undergraduates.
+or am currently exploring.
 
+- [Lecture Notes](lecture-notes.html) — Self-contained PDFs on topics in
+  combinatorics, matroid theory, and related areas.
 
-## {{ hl("example", "examples") }}
-
-- [TBD](#)
-  `(wait for it)`
-  — Ignore this for now:
-  This equation is just an example: $\{W_k(M)\}$ of Whitney numbers of the second kind of a matroid $M$ is log-concave.
-
-- [exammple2](#)
-  `(wait for it buddy)`
-  — is it working ?: $A^\bullet(M)$.
+- [Competitions](competitions.html) — Problem sets, solutions, and reflections
+  from mathematical olympiads and competitions.

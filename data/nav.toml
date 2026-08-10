@@ -2,26 +2,31 @@
 shortname = "About"
 src = "index"
 subpages = [
+  {shortname = "Now", src = "now"},
   {shortname = "Contact", src = "contact"},
+  {shortname = "CV", url = "/static/docs/Academic_CV_Rendi.pdf"},
+  {shortname = "Blog", url = "https://xinuzo.github.io/blog/"},
 ]
 
 [[block]]
 shortname = "Math Notes"
 src = "math-notes"
 subpages = [
-  {shortname = "Examples", url = "#example"},
+  {shortname = "Lecture Notes", src = "lecture-notes"},
+  {shortname = "Competitions", src = "competitions"},
 ]
 
 [[block]]
-shortname = "Software Projects"
-src = "software"
+shortname = "Projects"
+src = "projects"
 subpages = [
-  {shortname = "Placeholder", url = "#placeholder"},
+  {shortname = "Forest Sequence", url = "#forest-sequence"},
+  {shortname = "Turing Machine", url = "#turing-machine"},
 ]
 
 [[block]]
-shortname = "Teaching"
-src = "teaching"
+shortname = "Hobbies"
+src = "hobbies"
 subpages = [
-  {shortname = "Calculus 1", url = "#calculus-1"},
+  {shortname = "Language", src = "language"},
 ]

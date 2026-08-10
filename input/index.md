@@ -1,22 +1,22 @@
 ---
 title: Homepage of Rendi Adinata
-description: Homepage of Rendi Adinata. Mathematics, software projects, notes, and tutorials.
+description: Homepage of Rendi Adinata. Mathematics, projects, notes, and more.
 ---
 
 <span class="profile-float">
 <img src="/static/images/profile.jpg" width="200" alt="Photo of Rendi Adinata." />
 </span>
 
-_"死に様こそその生き様"_ 
+_"死に様こそその生き様"_
 
 
 Hi, I am **Rendi Adinata**,
 a mathematics undergraduate at
 [Institut Teknologi Bandung (ITB)](https://www.itb.ac.id/).
 My interests lie at the crossroads of
-[algebraic combinatorics](math-notes.html#example).
+[algebraic combinatorics](math-notes.html#lecture-notes).
 On the software side I build things with
-[Python](software.html#placeholder).
+[Python](projects.html#forest-sequence).
 
 Here is [my CV](/static/docs/Academic_CV_Rendi.pdf),
 my [writings](math-notes.html),
@@ -42,5 +42,5 @@ at Stanford University, tutored students for UTBK exams,
 and am active in [HIMATIKA ITB](https://himatika.org/).
 
 You can browse my [math notes](math-notes.html),
-[software projects](software.html),
-or [teaching materials](teaching.html).
+[projects](projects.html),
+or [hobbies](hobbies.html).

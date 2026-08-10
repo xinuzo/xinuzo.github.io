@@ -44,3 +44,29 @@ div.hidden {
   font-family: "PT Sans", sans-serif;
   font-size: 0.9em;
 }
+
+/* Saweria support link — sidebar bottom */
+.saweria-link {
+  margin-top: 16px;
+  padding-top: 10px;
+  border-top: 1px dashed #3a3a4a;
+  text-align: center;
+}
+.saweria-link a {
+  display: inline-block;
+  font-family: "PT Sans", sans-serif;
+  font-size: 13px;
+  color: #c0a080 !important;
+  padding: 5px 12px;
+  border: 1px solid #5a4a30;
+  border-radius: 6px;
+  background-color: #1a1810;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.saweria-link a:hover {
+  background-color: #2a2218;
+  color: #f0d0a0 !important;
+  border-color: #8a7a50;
+  text-decoration: none;
+  text-shadow: 0 0 8px rgba(240, 208, 160, 0.3);
+}
