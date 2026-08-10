@@ -20,8 +20,8 @@ subpages = [
 shortname = "Projects"
 src = "projects"
 subpages = [
-  {shortname = "Forest Sequence", url = "#forest-sequence"},
-  {shortname = "Turing Machine", url = "#turing-machine"},
+  {shortname = "Forest Sequence", src = "forest-sequence"},
+  {shortname = "Turing Machine", src = "turing-machine"},
 ]
 
 [[block]]
