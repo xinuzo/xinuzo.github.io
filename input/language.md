@@ -25,7 +25,7 @@ Here are some apps,tools, and YouTube channels I use regularly and genuinely rec
 
 - **[Yomu Yomu](https://yomuyomu.app/)** — A wonderful Japanese reading app with
   graded stories. Great for building reading fluency at any level. I use it almost
-  daily. This app is already equipped with flashcards feature by the way.
+  daily. This app is already equipped with flashcards feature by the way (which is why you don't see **[Anki](https://apps.ankiweb.net/)** in this list, but it is a great tool nonetheless)
 
 - **[Du Chinese](https://www.duchinese.net/)** — The Chinese equivalent of Yomu Yomu.
   Graded reading with pinyin support, audio, and vocabulary tracking. Excellent for
@@ -44,10 +44,10 @@ There are certainly many other useful apps, like **[Migaku](https://migaku.com/)
 - [Interviewing Japan](https://www.youtube.com/@InterviewingJapan) — this channel has one of the best japanese immersion contents with relevant and up to date topics.
 - [Nihongo no Mori](https://www.youtube.com/@nihongonomori2013) — Comprehensive JLPT preparation
   content, all in Japanese.
-- [Yusuke](https://www.youtube.com/@ComprehensibleJapanesehttps://www.youtube.com/@YusukeYumaPodcast) - contains great subtitle.
+- [Yusuke](https://www.youtube.com/@YusukeYumaPodcast) - contains great subtitle.
 - [Nihongo Maria](https://www.youtube.com/@Maria.Nihongo) - also has great immersion contents.
 
-and many other japanese skits/news/vlogs that will eventually appear in yout youtube recommendation. 
+and many other japanese skits/news/vlogs that will eventually appear in your youtube recommendation. 
 
 **Chinese:**
 - [Mandarin Corner](https://www.youtube.com/@MandarinCorner) — Real-life conversations
