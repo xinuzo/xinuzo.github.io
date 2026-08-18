@@ -36,16 +36,18 @@ Here are some apps,tools, and YouTube channels I use regularly and genuinely rec
 - **[MDBG](https://www.mdbg.net/chinese/dictionary)** - An online chinese dictionary (I use this only on my laptop).
 
 
+There are certainly many other useful apps, like **[Migaku](https://migaku.com/)**, but they're paid and I haven't tried any of the paid services for learning a language yet.
+
 #### YouTube Channels
 
 **Japanese:**
-- [Japanese Ammo with Misa](https://www.youtube.com/@JapaneseAmmowithMisa) — One of the
-  most popular free Japanese grammar channels. Misa explains concepts clearly with great
-  examples.
-- [Nihongo no Mori](https://www.youtube.com/@nihaboradio) — Comprehensive JLPT preparation
-  content, all in Japanese (great for immersion).
-- [Comprehensible Japanese](https://www.youtube.com/@ComprehensibleJapanese) — Slow,
-  clear Japanese with visual aids — perfect for beginners.
+- [Interviewing Japan](https://www.youtube.com/@InterviewingJapan) — this channel has one of the best japanese immersion contents with relevant and up to date topics.
+- [Nihongo no Mori](https://www.youtube.com/@nihongonomori2013) — Comprehensive JLPT preparation
+  content, all in Japanese.
+- [Yusuke](https://www.youtube.com/@ComprehensibleJapanesehttps://www.youtube.com/@YusukeYumaPodcast) - contains great subtitle.
+- [Nihongo Maria](https://www.youtube.com/@Maria.Nihongo) - also has great immersion contents.
+
+and many other japanese skits/news/vlogs that will eventually appear in yout youtube recommendation. 
 
 **Chinese:**
 - [Mandarin Corner](https://www.youtube.com/@MandarinCorner) — Real-life conversations
