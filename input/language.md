@@ -13,7 +13,7 @@ I started learning Japanese as a hobby. I used to enrolled in a two semester Jap
 
 ### Chinese (Mandarin) 🇨🇳
 
-Chinese is purely a **hobby** for me. I had already learnt the language from elementary school but could barely speak it. The chinese curriculum in Indonesia put too much emphasise on  memorizing hanzi and reading a bunch of texts but minimal explanation on how the sentence are built and how to functionally use the language. Lack of access to chinese contents also had partly become a challenge to actually acquire this language.
+Chinese is purely a **hobby** for me. I had already learnt the language from elementary school but could barely speak it. The chinese curriculum in Indonesia put too much emphasis on  memorizing hanzi and reading a bunch of texts, but minimal explanation on how the sentence are built and how to functionally use the language. Lack of access to chinese contents also had partly become a challenge to acquire this language too.
 
 ---
 
@@ -59,3 +59,6 @@ and many other japanese skits/news/vlogs that will eventually appear in your you
 
 #### Books
 I have only found books useful for exam preparation, I mainly use **[KanzenMaster](https://www.3anet.co.jp/np/en/list.html?series_id=4)** and **[HSK Standard textbook](https://shopee.co.id/Buku-Chinese-HSK-STANDARD-COURSE-TEXTBOOK-%28LVL-1-6B%29-i.143871707.2424349536)** for this purpose.
+
+
+Lastly, there are some awesome **Discrod** servers to practice your speaking skill for free! Just search it and join any one of them! The community there are pretty active and nice (so far, I've only joined 2). 
