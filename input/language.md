@@ -61,4 +61,4 @@ and many other japanese skits/news/vlogs that will eventually appear in your you
 I have only found books useful for exam preparation, I mainly use **[KanzenMaster](https://www.3anet.co.jp/np/en/list.html?series_id=4)** and **[HSK Standard textbook](https://shopee.co.id/Buku-Chinese-HSK-STANDARD-COURSE-TEXTBOOK-%28LVL-1-6B%29-i.143871707.2424349536)** for this purpose.
 
 
-Lastly, there are some awesome **Discrod** servers to practice your speaking skill for free! Just search it and join any one of them! The community there are pretty active and nice (so far, I've only joined 2). 
+Lastly, there are some awesome **[Discord](https://discord.com/)** servers to practice your speaking skill for free! Just search it and join any one of them! The community there are pretty active and nice (so far, I've only joined 2). 
