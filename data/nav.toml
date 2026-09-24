@@ -22,6 +22,7 @@ src = "projects"
 subpages = [
   {shortname = "Forest Sequence", src = "forest-sequence"},
   {shortname = "Turing Machine", src = "turing-machine"},
+  {shortname = "Continuum Hypothesis", src = "continuum-hypothesis"},
 ]
 
 [[block]]
