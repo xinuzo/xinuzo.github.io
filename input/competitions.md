@@ -6,6 +6,8 @@ description: Mathematical competition notes, write-ups, and resources by Rendi A
 ## {{ hl("competitions", "Competitions") }}
 
 Notes and write-ups related to mathematical olympiads and competitions.
+- [MTC Logika UI Past Problems](/static/docs/problemset.pdf)
+  - [Solutions](/static/docs/solutions.pdf)
 
-_Coming soon — I plan to add problem sets, solutions, and reflections from
-competitions I've participated in (OSN, KOALA, and others)._
+- [MTC Logika UI 2025 Solution](/static/docs/Solusi_MTC_2025.pdf)
+

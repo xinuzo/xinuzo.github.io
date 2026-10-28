@@ -4,16 +4,9 @@ description: Expository lecture notes on combinatorics, matroid theory, Lorentzi
 ---
 
 ## {{ hl("lecture-notes", "Lecture Notes") }}
+Here are some of the materials I've written to assist my teaching.
+- [Math SAT](#)
+  - [mathsat.v1](/static/docs/sat.pdf)
 
-Below are expository notes on topics I have studied
-or am currently exploring. Each document is a
-self-contained PDF intended to be accessible to undergraduates.
-
-- [TBD](#)
-  `(wait for it)`
-  — Ignore this for now:
-  This equation is just an example: $\{W_k(M)\}$ of Whitney numbers of the second kind of a matroid $M$ is log-concave.
-
-- [exammple2](#)
-  `(wait for it buddy)`
-  — is it working ?: $A^\bullet(M)$.
+- [Math Olympiad](#)  
+  - [Inequalities (Indonesian)](/static/docs/ketaksamaan.pdf)
